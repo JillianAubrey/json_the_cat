@@ -1,11 +1,12 @@
 const request = require("request");
 const query = process.argv.slice(2).join('%20');
 
-console.log(query);
-
 request('https://api.thecatapi.com/v1/breeds/search?q=' + query, (error, response, body) => {
   if (error) {
     return console.log(error);
+  }
+  if (response.statusCode !== 200) {
+    return console.log(response.statusCode, response.statusMessage);
   }
   const breedInfo = JSON.parse(body);
   if (breedInfo.length === 0) {
