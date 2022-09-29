@@ -16,8 +16,8 @@ const fetchBreedDescription = function(query, callback) {
 
     let returnString = '🐈🐈🐈';
     breedInfo.forEach((breed) => {
-      returnString += `\nBreed: ${breed.name}`;
-      returnString += `\nDescription: ${breed.description}`;
+      returnString += `\nBreed: ${breed.name.trim()}`;
+      returnString += `\nDescription: ${breed.description.trim()}`;
       returnString += '\n🐈🐈🐈';
     });
     return callback(null, returnString);
