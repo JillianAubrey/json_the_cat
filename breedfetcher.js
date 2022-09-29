@@ -10,8 +10,13 @@ request('https://api.thecatapi.com/v1/breeds/search?q=' + query, (error, respons
   }
   const breedInfo = JSON.parse(body);
   if (breedInfo.length === 0) {
-    return console.log("Hmmm, can't seem to find any breed matching that in the database.")
+    return console.log("Hmmm, can't seem to find any breed matching that in the database.");
   }
-  console.log(breedInfo);
-})
 
+  console.log('🐈🐈🐈');
+  breedInfo.forEach((breed) => {
+    console.log('Breed:', breed.name);
+    console.log('Description:', breed.description);
+    console.log('🐈🐈🐈');
+  });
+});
